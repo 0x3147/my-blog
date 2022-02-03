@@ -1,0 +1,14 @@
+.footer {
+  height: 60px;
+  background: #FFF;
+  .list {
+    list-style-type: none;
+    .item {
+      line-height: 60px;
+      .link {
+        color: cornflowerblue;
+        text-decoration: none;
+      }
+    }
+  }
+}
