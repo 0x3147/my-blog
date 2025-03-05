@@ -20,7 +20,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="relative flex min-h-screen flex-col">
+          <div className="relative flex min-h-screen flex-col bg-[#F0F0F0]">
             <Navbar />
             <Banner />
             <main className="flex-1">{children}</main>
