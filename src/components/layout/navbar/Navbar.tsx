@@ -26,7 +26,7 @@ const Navbar = () => {
           </div>
 
           {/* Navigation */}
-          <nav className="flex items-center space-x-8 ml-8">
+          <nav className="items-center space-x-8 ml-8 hidden md:flex">
             {navItems.map((item) => (
               <Link
                 key={item.href}
