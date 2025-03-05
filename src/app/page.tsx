@@ -1,11 +1,13 @@
 import LatestPosts from '@/components/home/LatestPosts'
+import Profile from '@/components/home/Profile'
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
-      <div className="py-12">
+    <main className="min-h-screen bg-[#F9FAFB]">
+      <div className="container mx-auto px-4 py-8 flex gap-8">
         <LatestPosts />
+        <Profile />
       </div>
-    </div>
+    </main>
   )
 }

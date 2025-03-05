@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { Clock, Eye, Heart } from 'lucide-react'
+import { Clock, Eye, Heart, RefreshCw } from 'lucide-react'
+import { useState } from 'react'
 
 interface Post {
   id: string
@@ -13,7 +14,7 @@ interface Post {
   views: number
 }
 
-const mockPosts: Post[] = [
+const allPosts: Post[] = [
   {
     id: '1',
     title: '使用 Next.js 13 构建现代化博客',
@@ -44,20 +45,62 @@ const mockPosts: Post[] = [
     likes: 156,
     views: 1234,
   },
+  {
+    id: '4',
+    title: 'React Hooks 使用技巧总结',
+    description:
+      '总结 React Hooks 的常用技巧和最佳实践，帮助你更好地使用 Hooks 开发 React 应用。',
+    date: '2024-03-01',
+    readTime: '15 min',
+    likes: 89,
+    views: 678,
+  },
+  {
+    id: '5',
+    title: 'TypeScript 高级特性详解',
+    description:
+      '深入探讨 TypeScript 的高级特性，包括泛型、装饰器、高级类型等，提升你的 TypeScript 技能。',
+    date: '2024-02-28',
+    readTime: '20 min',
+    likes: 145,
+    views: 987,
+  },
+  {
+    id: '6',
+    title: '前端性能优化实践',
+    description:
+      '分享前端性能优化的各种技巧和最佳实践，包括代码分割、懒加载、缓存策略等。',
+    date: '2024-02-27',
+    readTime: '18 min',
+    likes: 112,
+    views: 765,
+  },
 ]
 
 const LatestPosts = () => {
+  const [posts, setPosts] = useState<Post[]>(allPosts.slice(0, 3))
+
+  const refreshPosts = () => {
+    // 随机打乱文章顺序并取前3篇
+    const shuffled = [...allPosts].sort(() => Math.random() - 0.5)
+    setPosts(shuffled.slice(0, 3))
+  }
+
   return (
     <section className="w-[906px] mx-auto">
       <div className="flex justify-between items-center mb-8">
         <h2 className="text-2xl font-bold text-gray-900">最新文章</h2>
-        <Link href="/posts" className="text-[#FF6B6B] hover:text-[#FF6B6B]/80">
-          查看全部 →
-        </Link>
+        <button
+          onClick={refreshPosts}
+          className="flex items-center gap-1 text-[#FF6B6B] hover:text-[#FF6B6B]/80 transition-colors"
+        >
+          <RefreshCw className="w-4 h-4" />
+          <span>换一批</span>
+        </button>
       </div>
 
       <div className="space-y-6">
-        {mockPosts.map((post) => (
+        {posts.map((post) => (
           <article
             key={post.id}
             className="group bg-white rounded-lg overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
