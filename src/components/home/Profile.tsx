@@ -25,14 +25,14 @@ const Profile = () => {
           </div>
 
           <div className="flex flex-col items-center gap-2">
-            <div className="text-2xl font-bold text-gray-900">张三</div>
+            <div className="text-2xl font-bold text-gray-900">0x3147</div>
             <div className="text-[#FF6B6B] text-sm font-medium">
-              全栈开发工程师
+              一个普通的前端开发
             </div>
           </div>
 
           <div className="text-gray-600 text-sm text-center leading-relaxed">
-            热爱编程和技术分享，专注于前端开发和用户体验设计。喜欢探索新技术，乐于分享学习经验。
+            什么都想学一点的菜鸡，想要成为全栈高手
           </div>
         </div>
 
