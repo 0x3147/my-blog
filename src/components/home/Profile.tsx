@@ -17,7 +17,7 @@ const Profile = () => {
         <div className="flex flex-col items-center gap-6">
           <div className="relative w-20 h-20 rounded-full overflow-hidden ring-2 ring-[#FF6B6B] ring-offset-2">
             <Image
-              src="/avatar.jpg"
+              src="/avatar.jpeg"
               alt="个人头像"
               fill
               className="object-cover"
