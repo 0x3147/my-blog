@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
         destination: '/frontend',
         permanent: true,
       },
+      {
+        source: '/admin',
+        destination: '/admin/dashboard',
+        permanent: true,
+      },
     ]
   },
 }

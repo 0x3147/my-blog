@@ -1,6 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
+import { Providers } from './providers'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,9 +19,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="relative flex min-h-screen flex-col bg-[#F0F0F0]">
-            <main className="flex-1">{children}</main>
-          </div>
+          <Providers>
+            <div className="relative flex min-h-screen flex-col bg-[#F0F0F0]">
+              <main className="flex-1">{children}</main>
+            </div>
+          </Providers>
         </ThemeProvider>
       </body>
     </html>
