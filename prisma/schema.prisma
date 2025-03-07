@@ -14,4 +14,51 @@ model Admin {
   password  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+// 文章模型
+model Post {
+  id            Int       @id @default(autoincrement())
+  title         String    // 文章标题
+  content       String    @db.LongText  // MDX内容
+  description   String?   @db.Text      // 文章描述/摘要
+  slug          String    @unique       // URL友好的文章标识
+  published     Boolean   @default(false)  // 发布状态
+  viewCount     Int       @default(0)      // 浏览次数
+  coverImage    String?   // 封面图片URL
+  readingTime   Int       @default(0)      // 预计阅读时间（分钟）
+  tags          Tag[]     // 文章标签，多对多关系
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  publishedAt   DateTime? // 发布时间，可选
+}
+
+// 标签模型
+model Tag {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique   // 标签名称
+  posts     Post[]   // 关联的文章，多对多关系
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// 访问统计模型
+model PageView {
+  id        Int      @id @default(autoincrement())
+  path      String   // 访问的路径
+  ip        String   // 访问者IP
+  userAgent String?  @db.Text  // 用户代理信息
+  referer   String?  // 来源页面
+  createdAt DateTime @default(now())
+}
+
+// 仪表盘统计模型
+model DailyStat {
+  id           Int      @id @default(autoincrement())
+  date         DateTime @unique  // 统计日期
+  pageViews    Int      @default(0)  // 页面浏览量
+  uniqueVisits Int      @default(0)  // 独立访客数
+  topPosts     Json?    // 热门文章统计，使用JSON存储
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 } 
