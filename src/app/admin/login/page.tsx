@@ -40,7 +40,7 @@ export default function LoginPage() {
       }
 
       toast.success('登录成功')
-      router.push('/admin/dashboard')
+      router.push('/admin/content')
       router.refresh()
     } catch (error) {
       toast.error('登录过程中出现错误')

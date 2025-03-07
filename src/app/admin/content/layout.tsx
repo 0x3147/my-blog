@@ -1,6 +1,6 @@
 import { AntdRegistry } from '@ant-design/nextjs-registry'
 
-export default function AdminLayout({
+export default function ContentLayout({
   children,
 }: {
   children: React.ReactNode
